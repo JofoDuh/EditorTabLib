@@ -166,13 +166,13 @@ namespace EditorTabLib
         {
             internal static void Prefix(out bool __state)
             {
-                __state = SteamIntegration.Instance.initialized;
-                SteamIntegration.Instance.initialized = true;
+                __state = SteamIntegration.initialized;
+                SteamIntegration.initialized = true;
             }
 
             internal static void Postfix(PropertiesPanel __instance, LevelEventInfo levelEventInfo, bool __state)
             {
-                SteamIntegration.Instance.initialized = __state;
+                SteamIntegration.initialized = __state;
                 if (CustomTabManager.byType.TryGetValue((int)levelEventInfo.type, out CustomTabManager.CustomTab tab))
                 {
                     if (tab.page != null)
